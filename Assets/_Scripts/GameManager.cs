@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 
     private int _level;
     private int _lives = 3;
+    private int _coins;
 
     private void Awake()
     {
@@ -43,4 +44,19 @@ public class GameManager : MonoBehaviour
     }
 
     private void GameOver() => NewGame();
+
+    public void AddCoins()
+    {
+        _coins++;
+        if (_coins == 50)
+        {
+            AddLives();
+            _coins = 0;
+        }
+    }
+
+    public void AddLives()
+    {
+        _lives++;
+    }
 }

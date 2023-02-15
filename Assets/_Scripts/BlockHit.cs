@@ -3,6 +3,7 @@ using DG.Tweening;
 
 public class BlockHit : MonoBehaviour
 {
+    [SerializeField] private GameObject _item;
     [SerializeField] private Sprite _emptySprite;
     [SerializeField] private int _maxHits = -1;
     [SerializeField] private Ease _ease;
@@ -13,17 +14,17 @@ public class BlockHit : MonoBehaviour
         if (_maxHits == 0) return;
 
         if (!_animating && collision.gameObject.CompareTag("Player"))
-        {
-            if (collision.transform.DotProduct(transform, Vector2.up)) HitTheBlock();
-        }
+            if (collision.transform.DotProduct(transform, Vector2.up)) HitTheBlock();        
     }
 
     private void HitTheBlock()
     {
         _maxHits--;
         var spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer.enabled = true;
         if (_maxHits == 0) spriteRenderer.sprite = _emptySprite;
-
+        if (_item != null) Instantiate(_item, transform.position, Quaternion.identity);
+        
         Animate();
     }
 
