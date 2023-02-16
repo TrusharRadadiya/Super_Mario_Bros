@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerSpriteRenderer : MonoBehaviour
 {
-    private SpriteRenderer _spriteRenderer;
+    public SpriteRenderer spriteRenderer { get; private set; }
     private PlayerMovement _playerMovement;
 
     [SerializeField] private Sprite _idle;
@@ -12,18 +12,18 @@ public class PlayerSpriteRenderer : MonoBehaviour
 
     private void Awake()
     {
-        _spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         _playerMovement = GetComponentInParent<PlayerMovement>();
     }
 
     private void OnEnable()
     {
-        _spriteRenderer.enabled = true;
+        spriteRenderer.enabled = true;
     }
 
     private void OnDisable()
     {
-        _spriteRenderer.enabled = false;
+        spriteRenderer.enabled = false;
         _run.enabled = false;
     }
 
@@ -31,8 +31,8 @@ public class PlayerSpriteRenderer : MonoBehaviour
     {
         _run.enabled = _playerMovement.running;
 
-        if (_playerMovement.jumping) _spriteRenderer.sprite = _jump;
-        else if (_playerMovement.sliding) _spriteRenderer.sprite = _slide;        
-        else if (!_playerMovement.running) _spriteRenderer.sprite = _idle;
+        if (_playerMovement.jumping) spriteRenderer.sprite = _jump;
+        else if (_playerMovement.sliding) spriteRenderer.sprite = _slide;        
+        else if (!_playerMovement.running) spriteRenderer.sprite = _idle;
     }
 }

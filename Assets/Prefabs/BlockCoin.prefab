@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8578162484199045319}
   - component: {fileID: 8578162484199045312}
   - component: {fileID: 7404222690686605555}
+  - component: {fileID: -7820989022553024815}
   m_Layer: 6
   m_Name: BlockCoin
   m_TagString: Untagged
@@ -98,3 +99,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _ease: 27
+--- !u!114 &-7820989022553024815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8578162484199045313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 137a87d3e88c0b746b6729744e0375f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _type: 0

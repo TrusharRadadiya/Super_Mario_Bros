@@ -4,7 +4,7 @@ public class EntityMovement : MonoBehaviour
 {
     private Rigidbody2D _rigidbody;
     private Vector2 _velocity;
-    [HideInInspector] public Vector2 direction = Vector2.left;
+    public Vector2 direction = Vector2.left;
     public float speed = 2f;
 
     public bool cameraAwareness { get; set; }

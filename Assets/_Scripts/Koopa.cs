@@ -18,7 +18,8 @@ public class Koopa : MonoBehaviour
         if (collision.collider.CompareTag("Player"))
         {
             var player = collision.gameObject.GetComponent<Player>();
-            if (!_hiddenInShell)
+            if (player.starpower) Hit();
+            else if (!_hiddenInShell)
             {
                 if (collision.transform.DotProduct(transform, Vector2.down)) HideInShell();
                 else player.Hit();
@@ -63,5 +64,12 @@ public class Koopa : MonoBehaviour
         entityMovement.cameraAwareness = false;
 
         gameObject.layer = LayerMask.NameToLayer("Shell");
+    }
+
+    private void Hit()
+    {
+        GetComponent<AnimatedSprite>().enabled = false;
+        GetComponent<DeathAnimation>().enabled = true;
+        Destroy(gameObject, 2f);
     }
 }
