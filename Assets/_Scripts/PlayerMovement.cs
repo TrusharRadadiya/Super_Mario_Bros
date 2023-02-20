@@ -10,6 +10,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float moveSpeed = 8f;
     [SerializeField] private float maxJumpHeight = 5f;
     [SerializeField] private float maxJumpTime = 1f;
+    [SerializeField] private ParticleSystem _dust;
+    [SerializeField] private ParticleSystem _jumpDust;
 
     public float jumpForce => 2f * maxJumpHeight / (maxJumpTime * .5f);
     public float gravity => -2f * maxJumpHeight / Mathf.Pow(maxJumpTime * .5f, 2);
@@ -19,15 +21,38 @@ public class PlayerMovement : MonoBehaviour
     public bool running => Mathf.Abs(_velocity.x) > 0.25f || Mathf.Abs(_inputAxis) > 0.25f;
     public bool sliding => (_velocity.x > 0f && _inputAxis < 0f) || (_velocity.x < 0f && _inputAxis > 0f);
 
+    private bool _facingRight = true;
+    private bool _playDust = true;
+
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         _camera = Camera.main;
     }
 
+    private void OnEnable()
+    {
+        _velocity = Vector2.zero;   
+    }
+
+    private void OnDisable()
+    {
+        _velocity = Vector2.zero;
+    }
+
     private void Update()
     {
         HorizontalMovement();
+
+        if (sliding)
+        {
+            if (!_playDust)
+            {
+                _playDust = true;
+                PlayDustParticle();
+            }
+        }
+        else if (_playDust) _playDust = false;        
 
         grounded = _rigidbody.Raycast(Vector2.down);
         if (grounded) GroundedMovement();
@@ -54,8 +79,16 @@ public class PlayerMovement : MonoBehaviour
 
         if (_rigidbody.Raycast(Vector2.right * _velocity.x)) _velocity.x = 0f;
 
-        if (_velocity.x > 0f) transform.eulerAngles = Vector3.zero;
-        else if (_velocity.x < 0f) transform.eulerAngles = new Vector3(0f, 180f, 0f);
+        if (_velocity.x > 0f)
+        {
+            _facingRight = true;
+            transform.eulerAngles = Vector3.zero;
+        }
+        else if (_velocity.x < 0f)
+        {
+            _facingRight = false;
+            transform.eulerAngles = new Vector3(0f, 180f, 0f);
+        }
     }
 
     private void GroundedMovement()
@@ -63,10 +96,16 @@ public class PlayerMovement : MonoBehaviour
         _velocity.y = Mathf.Max(_velocity.y, 0f);
         jumping = _velocity.y > 0f;
 
+        Jump();
+    }
+
+    private void Jump()
+    {
         if (Input.GetButtonDown("Jump"))
         {
             _velocity.y = jumpForce;
             jumping = true;
+            PlayJumpDustParticle();   
         }
     }
 
@@ -86,11 +125,21 @@ public class PlayerMovement : MonoBehaviour
             {
                 _velocity.y = jumpForce * .5f;
                 jumping = true;
+                PlayJumpDustParticle();
             }
             else if (collision.gameObject.layer != LayerMask.NameToLayer("PowerUp"))
             {
                 if (transform.DotProduct(collision.transform, Vector2.up)) _velocity.y = 0f;
             }
         }
+    }
+
+    private void PlayDustParticle() => _dust.Play();
+
+    private void PlayJumpDustParticle()
+    {
+        var jumpDust = Instantiate(_jumpDust, _jumpDust.transform.position, Quaternion.identity);
+        jumpDust.Play();
+        Destroy(jumpDust.gameObject, 1f);
     }
 }

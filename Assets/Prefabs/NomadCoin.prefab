@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3938138754047720467}
   - component: {fileID: 3938138754047720492}
   - component: {fileID: 3938138754047720495}
+  - component: {fileID: 8543519182095504767}
   m_Layer: 6
   m_Name: NomadCoin
   m_TagString: Untagged
@@ -111,3 +112,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &8543519182095504767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3938138754047720488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 137a87d3e88c0b746b6729744e0375f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _type: 0
