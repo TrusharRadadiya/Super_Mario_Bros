@@ -5,6 +5,7 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private PlayerSpriteRenderer _smallRenderer;
     [SerializeField] private PlayerSpriteRenderer _bigRenderer;
+    [SerializeField] private AudioClip _deathClip;
     private DeathAnimation _deathAnimation;
     private CapsuleCollider2D _capsuleCollider;
 
@@ -79,10 +80,13 @@ public class Player : MonoBehaviour
 
     private void Death()
     {
+        SoundManager.Instance.StopMusic();
+        SoundManager.Instance.PlayEffect(_deathClip);
+
         _smallRenderer.enabled = _bigRenderer.enabled = false;
         _deathAnimation.enabled = true;
 
-        GameManager.Instance.ResetLevel(2f);
+        GameManager.Instance.ResetLevel(3f);
     }
 
     public void Starpower(float duration = 10f)
