@@ -11,6 +11,7 @@ public class PowerUp : MonoBehaviour
     }
 
     [SerializeField] private PowerType _type;
+    [SerializeField] private AudioClip _powerUpClip;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -38,6 +39,7 @@ public class PowerUp : MonoBehaviour
                 player.GetComponent<Player>().Starpower();
                 break;
         }
+        SoundManager.Instance.PlayEffect(_powerUpClip);
         Destroy(gameObject);
     }
 }

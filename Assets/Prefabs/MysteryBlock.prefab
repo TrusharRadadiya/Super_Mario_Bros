@@ -128,3 +128,5 @@ MonoBehaviour:
   _emptySprite: {fileID: 21300000, guid: 67329d26209c7da45a4fe29340912b56, type: 3}
   _maxHits: 1
   _ease: 4
+  _bumpClip: {fileID: 8300000, guid: ee16a05cd36eb904eac203cb7d5a6002, type: 3}
+  _appearClip: {fileID: 8300000, guid: 14bff5b5f4fb7e54dbc0ec5dfb848ab8, type: 3}

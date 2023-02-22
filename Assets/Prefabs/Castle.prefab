@@ -156,3 +156,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3773ef5540a180b4a81152bc7f2327ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _stageClearClip: {fileID: 8300000, guid: f7a366e6598cb10429d21425447859ba, type: 3}

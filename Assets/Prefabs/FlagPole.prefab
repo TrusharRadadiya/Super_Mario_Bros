@@ -193,6 +193,8 @@ MonoBehaviour:
   _flag: {fileID: 6553885595094578346}
   _bottom: {fileID: 8851236903116907081}
   _castle: {fileID: 0}
+  _speed: 6
+  _flagPoleClip: {fileID: 8300000, guid: 8da539ba9a76e3245a8ac569fa5887bc, type: 3}
 --- !u!1 &6553885597059341555
 GameObject:
   m_ObjectHideFlags: 0

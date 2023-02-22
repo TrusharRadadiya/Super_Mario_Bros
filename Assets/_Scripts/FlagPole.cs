@@ -8,11 +8,13 @@ public class FlagPole : MonoBehaviour
     [SerializeField] private Transform _bottom;
     [SerializeField] private Transform _castle;
     [SerializeField] private float _speed = 6f;
+    [SerializeField] private AudioClip _flagPoleClip;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
+            SoundManager.Instance.PlayEffect(_flagPoleClip);
             StartCoroutine(MoveTo(_flag, _bottom.position));
             StartCoroutine(LevelCompleteSequence(collision.transform));
         }

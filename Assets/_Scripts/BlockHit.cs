@@ -7,6 +7,8 @@ public class BlockHit : MonoBehaviour
     [SerializeField] private Sprite _emptySprite;
     [SerializeField] private int _maxHits = -1;
     [SerializeField] private Ease _ease;
+    [SerializeField] private AudioClip _bumpClip;
+    [SerializeField] private AudioClip _appearClip;
     private bool _animating;
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -19,6 +21,7 @@ public class BlockHit : MonoBehaviour
 
     private void HitTheBlock()
     {
+        SoundManager.Instance.PlayEffect(_bumpClip);
         _maxHits--;
         var spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.enabled = true;
@@ -31,6 +34,7 @@ public class BlockHit : MonoBehaviour
     private void Animate()
     {
         _animating = true;
+        SoundManager.Instance.PlayEffect(_appearClip);
 
         var originalPosition = transform.localPosition;
         var animatedPosition = transform.localPosition + Vector3.up * .5f;

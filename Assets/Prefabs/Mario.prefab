@@ -9718,6 +9718,8 @@ MonoBehaviour:
   maxJumpTime: 1
   _dust: {fileID: 778707898}
   _jumpDust: {fileID: 761641449}
+  _jumpClip: {fileID: 8300000, guid: 0bae6c02ef997594abeb90d25663e049, type: 3}
+  _stompClip: {fileID: 8300000, guid: 141a45d6fe971124fb6ed80468ca2dd2, type: 3}
 --- !u!114 &2660975321299700414
 MonoBehaviour:
   m_ObjectHideFlags: 0

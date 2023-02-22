@@ -124,6 +124,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c2e4f2a96b5cb9479755f2a0be9e8ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _item: {fileID: 0}
   _emptySprite: {fileID: 0}
   _maxHits: -1
   _ease: 4
+  _bumpClip: {fileID: 8300000, guid: ee16a05cd36eb904eac203cb7d5a6002, type: 3}
+  _appearClip: {fileID: 0}

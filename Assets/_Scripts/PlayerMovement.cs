@@ -13,6 +13,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private ParticleSystem _dust;
     [SerializeField] private ParticleSystem _jumpDust;
 
+    [Header("Sound Effects")]
+    [SerializeField] private AudioClip _jumpClip;
+    [SerializeField] private AudioClip _stompClip;
+
     public float jumpForce => 2f * maxJumpHeight / (maxJumpTime * .5f);
     public float gravity => -2f * maxJumpHeight / Mathf.Pow(maxJumpTime * .5f, 2);
 
@@ -103,6 +107,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetButtonDown("Jump"))
         {
+            SoundManager.Instance.PlayEffect(_jumpClip);
             _velocity.y = jumpForce;
             jumping = true;
             PlayJumpDustParticle();   
@@ -123,6 +128,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (transform.DotProduct(collision.transform, Vector2.down))
             {
+                SoundManager.Instance.PlayEffect(_stompClip);
                 _velocity.y = jumpForce * .5f;
                 jumping = true;
                 PlayJumpDustParticle();
