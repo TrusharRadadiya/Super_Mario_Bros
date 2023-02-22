@@ -10,6 +10,7 @@ public class Pipe : MonoBehaviour
     [Space, SerializeField] private Vector3 _enterDirection = Vector3.down;
     [SerializeField] private Vector3 _exitDirection = Vector3.zero;
     [SerializeField] private Transform _exitPoint;
+    [SerializeField] private AudioClip _pipeClip;
 
     private bool _entering = false;
 
@@ -42,6 +43,7 @@ public class Pipe : MonoBehaviour
     private void Enter(Transform player)
     {
         _entering = true;
+        SoundManager.Instance.PlayEffect(_pipeClip);
 
         var enteringPosition = player.position + _enterDirection;
         player.DOScale(Vector3.zero, .5f).SetEase(Ease.InBack);

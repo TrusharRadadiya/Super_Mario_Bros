@@ -3,6 +3,7 @@ using UnityEngine;
 public class SoundManager : MonoBehaviour
 {
     [SerializeField] private AudioSource _effectsSource;
+    [SerializeField] private AudioSource _musicSource;
 
     public static SoundManager Instance;
 
@@ -21,4 +22,8 @@ public class SoundManager : MonoBehaviour
         if (clip == null) return;
         _effectsSource.PlayOneShot(clip);
     }
+
+    public void StopMusic() => _musicSource.Stop();
+
+    public void PlayMusic() => _musicSource.Play();
 }

@@ -1826,6 +1826,7 @@ MonoBehaviour:
   _enterDirection: {x: 0, y: -1, z: 0}
   _exitDirection: {x: 0, y: 0, z: 0}
   _exitPoint: {fileID: 1433780929}
+  _pipeClip: {fileID: 8300000, guid: 090cfc85b0df4104f95e43a5af346811, type: 3}
 --- !u!1001 &210672200
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4158,6 +4159,7 @@ MonoBehaviour:
   _enterDirection: {x: 0, y: -1, z: 0}
   _exitDirection: {x: 0, y: 0, z: 0}
   _exitPoint: {fileID: 1433780929}
+  _pipeClip: {fileID: 8300000, guid: 090cfc85b0df4104f95e43a5af346811, type: 3}
 --- !u!1001 &378439026
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15756,6 +15758,7 @@ MonoBehaviour:
   _enterDirection: {x: 1, y: 0, z: 0}
   _exitDirection: {x: 0, y: 1, z: 0}
   _exitPoint: {fileID: 860564293}
+  _pipeClip: {fileID: 8300000, guid: 090cfc85b0df4104f95e43a5af346811, type: 3}
 --- !u!1001 &1633666076
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16716,6 +16719,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _effectsSource: {fileID: 801895851}
+  _musicSource: {fileID: 297587703}
 --- !u!4 &1728574181
 Transform:
   m_ObjectHideFlags: 0

@@ -30,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
+        SoundManager.Instance.PlayMusic();
         _rigidbody = GetComponent<Rigidbody2D>();
         _camera = Camera.main;
     }

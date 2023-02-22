@@ -8,7 +8,9 @@ public class Castle : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
+            SoundManager.Instance.StopMusic();
             SoundManager.Instance.PlayEffect(_stageClearClip);
+
             collision.gameObject.SetActive(false);
             GameManager.Instance.ResetLevel(_stageClearClip.length);
         }
