@@ -1,15 +1,13 @@
 # Super Mario Bros.
 
-<!--
 <p>
-  <a href="https://mega.nz/file/Ux5kSboS#zxCvFusoEFX1ZC6QKwzQyR6G3_x56HF42uxbFNvf9eg" target="_blank">
-      <img align="center" src="https://img.shields.io/static/v1?label=APK &message=Download &color=<COLOR>" alt="APK" />
+  <a href="https://simmer.io/@TrusharRadadiya/super-mario-bros" target="_blank">
+      <img align="center" src="https://img.shields.io/static/v1?label=Live on Simmer.io &message=Play Now &color=<COLOR>" alt="APK" />
   </a>
-  <a href="https://youtu.be/Kj0nSHeXdHw" target="_blank">
+  <a href="https://youtu.be/yw0tEZ3oLpg" target="_blank">
       <img align="center" src="https://img.shields.io/static/v1?label=Gameplay Video &message=Watch on YouTube &color=<COLOR>" alt="YouTube"/>
   </a>
 </p>
--->
 
 ## Overview of Original Game
 
